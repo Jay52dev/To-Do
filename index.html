@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProTasker - Advanced To-Do Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="panel header">
+            <h1>🚀 ProTasker</h1>
+            <p>Professional Task Management System</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalTasks">0</span>
+                    <span>Total Tasks</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="completedTasks">0</span>
+                    <span>Completed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="pendingTasks">0</span>
+                    <span>Pending</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left Panel - Task Creation -->
+        <div class="panel">
+            <h3>📝 Create New Task</h3>
+            <div class="input-section">
+                <div class="task-form">
+                    <div class="form-row">
+                        <input type="text" id="taskTitle" class="task-input" placeholder="Task title..."
+                            maxlength="100">
+                        <select id="taskPriority" class="priority-select">
+                            <option value="low">Low Priority</option>
+                            <option value="medium" selected>Medium Priority</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                    </div>
+                    <textarea id="taskDescription" placeholder="Task description (optional)..." rows="3"></textarea>
+                    <button class="add-btn" onclick="addTask()">
+                        ➕ Add Task
+                    </button>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h3>📊 Progress Overview</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">0% Complete</div>
+            </div>
+        </div>
+
+        <!-- Center Panel - Task List -->
+        <div class="panel">
+            <div class="filters">
+                <input type="text" id="searchBox" class="search-box" placeholder="🔍 Search tasks..."
+                    onkeyup="searchTasks()">
+                <button class="filter-btn active" onclick="filterTasks('all')">All Tasks</button>
+                <button class="filter-btn" onclick="filterTasks('pending')">Pending</button>
+                <button class="filter-btn" onclick="filterTasks('completed')">Completed</button>
+                <button class="filter-btn" onclick="filterTasks('high')">High Priority</button>
+                <button class="filter-btn" onclick="filterTasks('medium')">Medium Priority</button>
+                <button class="filter-btn" onclick="filterTasks('low')">Low Priority</button>
+            </div>
+
+            <div class="tasks-container" id="tasksContainer">
+                <div class="no-tasks" id="noTasks">
+                    🎯 No tasks yet. Create your first task to get started!
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Activity Log -->
+        <div class="panel">
+            <h3>📈 Activity Log</h3>
+            <div class="activity-log" id="activityLog">
+                <div class="activity-item">
+                    <div>Welcome to ProTasker!</div>
+                    <div class="activity-time">Just now</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="javascript.js"></script>
+</body>
+
+</html>
